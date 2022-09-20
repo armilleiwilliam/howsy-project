@@ -16,12 +16,16 @@ class Product
      * @param int $id
      * @return $this
      */
-    public function getProduct(String $id): self
+    public function getProduct(string $id): self
     {
-        $this->query = $this->db->prepare("SELECT * FROM products WHERE product_code = :id");
-        $this->query->execute(array("id" => $id));
-        $this->fetch = $this->query->fetch();
-        return $this;
+        try {
+            $this->query = $this->db->prepare("SELECT * FROM products WHERE product_code = :id");
+            $this->query->execute(array("id" => $id));
+            $this->fetch = $this->query->fetch();
+            return $this;
+        } catch (PDOException $e) {
+            return "Coonnection failed: " . $e->getMessage();
+        }
     }
 
     /**

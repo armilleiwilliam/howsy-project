@@ -42,18 +42,22 @@ class Offer
      */
     public function getMyOffer(int $user_id)
     {
-        $this->query = $this->db->prepare("SELECT * FROM offers 
+        try {
+            $this->query = $this->db->prepare("SELECT * FROM offers 
                             left join client_offers on offers.id = client_offers.offer_id 
                             WHERE client_offers.client_id = :user_id");
-        $this->query->execute(array("user_id" => $user_id));
-        $this->fetchMyOffer = $this->query->fetch();
-        return $this;
+            $this->query->execute(array("user_id" => $user_id));
+            $this->fetchMyOffer = $this->query->fetch();
+            return $this;
+        } catch (PDOException $e) {
+            return "Coonnection failed: " . $e->getMessage();
+        }
     }
 
     /**
      * @return String
      */
-    public function getMyDiscount(): String
+    public function getMyDiscount(): string
     {
         return $this->fetchMyOffer["discount"];
     }
@@ -61,7 +65,7 @@ class Offer
     /**
      * @return String
      */
-    public function getMyOfferName(): String
+    public function getMyOfferName(): string
     {
         return $this->fetchMyOffer["name"];
     }
