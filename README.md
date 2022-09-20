@@ -15,12 +15,12 @@ configurations (howsy-project.conf)
 I assumed that the user was already logged in, so, the user id is manually passed (user_id = 1) when requesting data belonging to a user
 
 **PHPUnit installation:** you can find composer.json, by running composer install should add PhpUnit. In case it fails  run "composer require --dev phpunit/phpunit ^7"
-Test the app expected results running: "./vendor/bin/phpunit tests/BasketTest". Considering the app is not dveloped with a framework (usually PhpUnit
-is ran and adapted for frameworks) the $this->get("/") and $this->post("/") methods don't work, but only comparison assertions on results returned
+Test the app expected results running: "./vendor/bin/phpunit tests/BasketTest". Considering the app is not developed with a framework (usually PhpUnit
+is adapted to a frameworks) the $this->get("/") and $this->post("/") methods don't work, but only comparison assertions on returned results
 
 
 **Docker**: as you might have noticed I haven't used Docker as you requested. I have used it long time ago and I thought I could pick it up more quickly
-when the recruiter informed me it was an important tool for you, but this was not the case unfortunately. I am quite sure in a few weeks I could start becoming confident using it, 
+when the recruiter informed me it was an important tool for you, but this was not the case, unfortunately. I am quite sure in a few weeks I could start becoming confident using it, 
 but it's your choice to take it into consideration or not. 
 
 **Run the app:**
@@ -28,7 +28,7 @@ but it's your choice to take it into consideration or not.
     the basket is populated, refreshing this page the json returned shows the total price and total price discounted according to the 
     promotion the user is entitled to. 
 - to add a product: http://www.howsy-test.com?add_prod=P001. You will see a Json returned with a successful message and the product details, if the product code 
-  does not exist a message is returned. If you want to see the basket being populated open the home again, http://www.howsy-test.com.
+  does not exist a message is returned. If you want to see the basket being populated open the home again, http://www.howsy-test.com, and you will see all the totals.
 - to empty a cart: http://www.howsy-test.com?empty_cart
 I could have added many other functionalities, but I understood you didn't have it to be too elaborated, but to see the structure 
 of it and how different parts interacted with each other. 
