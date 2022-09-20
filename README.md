@@ -18,6 +18,10 @@ Test the app expected results with: "./vendor/bin/phpunit tests/BasketTest". Con
 is ran and adapted for framework) the $this->get("/") and $this->post("/") don't work, but only comparison assertions on results returned
 from BasketController methods
 
+**Docker**: as you might have noticed I haven't used Docker as you requested. I have used it long time ago and I thought I could pick it up more quickly
+when the recruiter informed me it was an important tool for you, but this was not the case unfortunately. I am quite sure in a few weeks I could start becoming confident using it, 
+but it's your choice to take it into consideration or not. 
+
 **Run the app:**
 - the home shows the basket: "http://www.howsy-test.com". It basically returns a json with the basket contents, if empty otherwise. Every time you add a product
     the basket is populated and refreshing this page the json returned shows the total price and total price discounted according to the 
