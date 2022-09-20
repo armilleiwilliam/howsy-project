@@ -1,7 +1,11 @@
 <?php
 
+// In order to run Basket controller in phpUnit test not using a framework
+// I need to refresh to flush the buffers using ob_start
+ob_start();
+
 /**
- * This is the Basket controller: every action like addition, removal or total is found in this controller
+ * This is the Basket controller: every action like addition, removal or total calculation is found in this controller
  */
 class BasketController
 {

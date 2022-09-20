@@ -1,10 +1,14 @@
 <?php
+/**
+ *  Howsy Project: file index.php
+ * All requests are sent in here and processed by BasketContoller
+ */
+
+$add_slash = true;
 require $_SERVER['DOCUMENT_ROOT'] . "/inc/config.php";
 
 global $conn;
-
 $basket = new BasketController();
-$user = 1;
 
 if(isset($_GET["empty_cart"])){
     echo $basket->emptyBasket();
