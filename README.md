@@ -1,6 +1,6 @@
 
-**Structure::** I have used an MVC type, due to the simplicity I have avoided adding controllers and methods in "App" or "Src" folders, but that's where I would usually
-put them.  
+**Structure::** I have used an MVC type, due to the simplicity I have avoided adding controllers and methods in a "App" or "Src" folder, but that's where I would usually
+put them if it was more complex.  
 
 **Php version:** I have developed the test using my work computer. The most of our projects run php 5.6 or 7.4, I haven't upgraded to v. 8 yet, so, I have
 developed the test using php 7.4, but I can develop in Php 8.
