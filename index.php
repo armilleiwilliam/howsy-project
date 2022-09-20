@@ -15,7 +15,7 @@ if(isset($_GET["empty_cart"])){
 } else if(isset($_GET["add_prod"])){
     echo $basket->addProductToBasket($_GET["add_prod"]);
 } else {
-    echo $basket->showBasket($user);
+    echo $basket->showBasket(USER_ID);
 }
 
 
