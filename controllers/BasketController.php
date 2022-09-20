@@ -1,7 +1,7 @@
 <?php
 
-// In order to run Basket controller in phpUnit test not using a framework
-// I need to refresh to flush the buffers using ob_start
+// In order to run Basket controller in phpUnit test witouth using a framework
+// I need to flush the buffers using ob_start below
 ob_start();
 
 /**
