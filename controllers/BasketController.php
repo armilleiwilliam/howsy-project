@@ -121,7 +121,6 @@ class BasketController
      */
     public function calculateTotals(array &$basket, string $myDiscount): void
     {
-        setlocale(LC_MONETARY, 'en_GB');
         $totals = 0;
         if(!empty($basket["products"])){
             foreach ($basket["products"] AS $bas){

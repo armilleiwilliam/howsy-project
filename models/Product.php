@@ -49,6 +49,6 @@ class Product
      */
     public function getPrice(): string
     {
-        return $this->fetch["price"];
+        return utf8_encode(money_format('%n', $this->fetch["price"]));
     }
 }
