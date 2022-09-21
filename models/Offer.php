@@ -22,10 +22,14 @@ class Offer
      */
     public function getOffer($id): self
     {
-        $this->query = $this->db->prepare("SELECT * FROM offers WHERE id = :id");
-        $this->query->execute(array("id" => $id));
-        $this->fetchOffer = $this->query->fetch();
-        return $this->fetchOffer;
+        try {
+            $this->query = $this->db->prepare("SELECT * FROM offers WHERE id = :id");
+            $this->query->execute(array("id" => $id));
+            $this->fetchOffer = $this->query->fetch();
+            return $this->fetchOffer;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
     }
 
     /**

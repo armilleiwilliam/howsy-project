@@ -18,7 +18,6 @@ class BasketController
     {
         $basket = ["Basket empty."];
         $myDiscount = 0;
-        $totals = 0;
         if(isset($_COOKIE["shopping_cart"])){
             $basket = $this->stripBasket($_COOKIE["shopping_cart"]);
         }
@@ -36,16 +35,7 @@ class BasketController
         }
 
         // calculate totals
-        if(!empty($basket["products"])){
-            foreach ($basket["products"] AS $bas){
-                $totals += $bas["price"];
-            }
-            $basket["total_price"] = $totals;
-
-            if($myDiscount) {
-                $basket["total_price_discounted"] = $totals - ($totals / 100 * 10);
-            }
-        }
+        $this->calculateTotals($basket, $myDiscount);
 
         return json_encode(["message" =>  "success", "data" => $basket]);
     }
@@ -122,5 +112,25 @@ class BasketController
     {
         setcookie('shopping_cart', '', time() - 100000);
         return json_encode(["success" => "Basket empty"]);
+    }
+
+    /**
+     * @param array $basket
+     * @param string $myDiscount
+     * @return void
+     */
+    public function calculateTotals(array &$basket, string $myDiscount): void
+    {
+        $totals = 0;
+        if(!empty($basket["products"])){
+            foreach ($basket["products"] AS $bas){
+                $totals += $bas["price"];
+            }
+            $basket["total_price"] = $totals;
+
+            if($myDiscount) {
+                $basket["total_price_discounted"] = $totals - ($totals / 100 * 10);
+            }
+        }
     }
 }
